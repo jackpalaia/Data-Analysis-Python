@@ -4,7 +4,7 @@ def merge(l1, l2):
   count1 = 0
   count2 = 0
   finalList = []
-  for i in range(len(l1) + len(l2)):
+  for _ in range(len(l1) + len(l2)):
     # if length of either list is 0
     if (len(l1) == 0):
       return l2
