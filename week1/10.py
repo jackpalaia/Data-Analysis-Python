@@ -2,23 +2,40 @@ def detect_ranges(list1):
   sortedList = sorted(list1)
   finalList = []
   inRange = False
-  for i, val in enumerate(sortedList):
+  rangeTracker = [0, 0]
+
+  for (i, x) in enumerate(sortedList):
     if (i == len(sortedList) - 1):
-      break
+      if (inRange):
+        if (x == sortedList[i - 1] + 1):
+          rangeTracker[1] += 1
+          finalList.append(tuple(rangeTracker))
+          break
+        else:
+          finalList.append(x)
+          break
+      else:
+        finalList.append(x)
+        break
     if (not inRange):
-      if (sortedList[i + 1] == val + 1):
-        finalList.append(f'({val}')
-        inRange = True
+      if (sortedList[i + 1] != x + 1):
+        finalList.append(x)
         continue
       else:
-        finalList.append(val)
+        rangeTracker = [x, x + 1]
+        inRange = True
         continue
     else:
-      if (sortedList[i + 1] != val + 1):
-        finalList.append(f'{val})')
+      if (sortedList[i + 1] == x + 1):
+        rangeTracker[1] += 1
+        continue
+      else:
+        rangeTracker[1] += 1
+        finalList.append(tuple(rangeTracker))
         inRange = False
         continue
+  
   return finalList
 
-list1 = [5,7,3,1,9,6,2]
+list1 = [2,5,4,8,12,6,7,10,13]
 print(detect_ranges(list1))
