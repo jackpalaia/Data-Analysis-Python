@@ -1,3 +1,2 @@
-list1 = [1,2,3,4,5]
-list2 = 'one two three four five'.split()
-print(list(zip(list1, list2)))
+d = dict(a = 1, b = 2, c = 3, d = 4)
+print(d.items())
