@@ -2,8 +2,7 @@ def interleave(*lists):
   list1 = list(zip(lists[0], lists[1]))
   finalList = []
   for group in list1:
-    for x in group:
-      finalList.append(x)
+    finalList.extend(group)
   return finalList
 
 def main():
