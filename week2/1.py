@@ -4,7 +4,7 @@ def integers_in_brackets(s):
   list1 = re.findall(r'(\[[\s+-]*\d+[\s+-]*\])+', s)
   list2 = []
   for x in list1:
-    y = x.strip(' []+-')
+    y = x.strip(' []+')
     list2.append(int(y))
   return list2
 
